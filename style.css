@@ -1,0 +1,76 @@
+body{
+    background-color: darkslategrey;
+}
+h1{
+   
+    text-align: center;
+    color: aqua;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 80px;
+}
+
+.c{
+    display: inline-block;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 45px;  /* spacing between players */
+    
+}
+
+
+span{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 18px;
+    margin-left: 42px;
+    color: aqua;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 20px;
+    
+    
+}
+
+.dice{
+    background-color:white;
+    height: 174px;
+    width: 178px;  
+    border-radius: 12%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center; 
+    gap: 10px;
+}
+.dot{
+    background-color: black;
+    border-radius: 100%;
+    height: 29px;
+    width: 29px;
+    grid-column:2; 
+    grid-row:2;
+}
+
+.btn{
+    text-align: center;
+    margin-top: 40px;
+}
+.play{
+    padding: 10px;
+    background-color: aqua;
+    
+}
+.play:hover{
+    background-color: black;
+    color: aqua;
+}
+#message {
+    text-align: center;
+    margin-top: 20px;
+    color: aqua;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 24px;
+}
