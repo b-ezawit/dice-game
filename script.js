@@ -1,58 +1,68 @@
-
 const player1Dice = document.querySelector('#player1 .dice');
 const player2Dice = document.querySelector('#player2 .dice');
-const rollBtn = document.getElementById('rollBtn');
+const button = document.getElementById('rollBtn');
 const h1 = document.querySelector('h1');
-const message = document.getElementById('message');
+const message = document.querySelector('h4');
 
-const diceMap = {
-    1: [[2,2]],
-    2: [[1,1],[3,3]],
-    3: [[1,1],[2,2],[3,3]],
-    4: [[1,1],[1,3],[3,1],[3,3]],
-    5: [[1,1],[1,3],[2,2],[3,1],[3,3]],
-    6: [[1,1],[1,3],[2,1],[2,3],[3,1],[3,3]]
+let diceMap = {
+    1 : [[2,2]],
+    2 : [[1,1] , [3,3]],
+    3 : [[1,1],[2,2] , [3,3]],
+    4 : [[1,1] , [3,3] ,[1,3] , [3,1]],
+    5 : [[1,1] , [2,2] , [3,3] ,[1,3] , [3,1] ],
+    6 : [[1,1] , [2,1], [3,1] , [1,3], [2,3] , [3,3]]
 };
 
-function renderDice(number, diceContainer) {
-    diceContainer.innerHTML = '';
-    const positions = diceMap[number];
-    positions.forEach(([r,c]) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        dot.style.gridRow = r;
-        dot.style.gridColumn = c;
-        diceContainer.appendChild(dot);
-    });
+function renderDice(num ,dContainer){
+    dContainer.innerHTML = '';
+    
+    const position = diceMap[num];
+    position.forEach(   ([r,c]) => {
+        const dots = document.createElement('div');
+        dots.classList.add('dot');
+        dots.style.gridRow = r;
+        dots.style.gridColumn = c;
+        dContainer.appendChild(dots);
+    })
+    /* or:
+    const poition = dicemap[num];
+    for(let i = 0; i<position.lenght ; i++){
+      const pos = position[i];
+      const r = pos[0];
+      const c = pos[1];
+
+      const dots = document.createElement('div');
+      dots.classList.add('dot');
+      dots.style.gridRow = r;
+      dots.style.gridCloumn = c;
+
+      dContainer.append(dots);
+
+    }*/
 }
 
-function rollDice() {
-    // clear dice instantly
-    player1Dice.innerHTML = '';
-    player2Dice.innerHTML = '';
+function rollDice(){
     h1.textContent = "Rolling...";
     message.textContent = "";
 
-    // after 1 second, show result
-    setTimeout(() => {
-        const num1 = Math.floor(Math.random() * 6) + 1;
-        const num2 = Math.floor(Math.random() * 6) + 1;
-
-        renderDice(num1, player1Dice);
-        renderDice(num2, player2Dice);
-
-        // determine winner
-        if(num1 > num2) {
+    setTimeout(() =>{
+    const num1 = Math.floor(Math.random() * 6) + 1;
+    const num2 = Math.floor(Math.random() * 6) + 1;
+        renderDice(num1 , player1Dice);
+        renderDice(num2 , player2Dice);
+        if(num1 > num2){
             h1.textContent = "Player 1 Wins!";
-        } else if(num2 > num1) {
+        }
+        else if(num2 > num1){
             h1.textContent = "Player 2 Wins!";
-        } else {
+        }
+        else{
             h1.textContent = "It's a Tie!";
         }
 
-        // show roll again message
-        message.textContent = "Roll Dice again!";
-    }, 3800); // 1000ms = 1 second
+        message.textContent = "Roll Dice Again!";
+     }, 3800);
+    
 }
 
-rollBtn.addEventListener('click', rollDice);
+button.addEventListener('click', rollDice);
