@@ -21,8 +21,6 @@ A simple webpage that simulates rolling two dice, displays the results, and decl
 2. Open the `index.html` file in any modern web browser.
 3. Click the "Roll Dice" button to play.
 
-## Demo
-Watch the demo video here: [Demo Video](https://www.awesomescreenshot.com/video/45707252?key=dcba1931f5b50d4a8baf563e49b53384)
 
 
 
