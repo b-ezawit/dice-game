@@ -24,21 +24,7 @@ function renderDice(num ,dContainer){
         dots.style.gridColumn = c;
         dContainer.appendChild(dots);
     })
-    /* or:
-    const poition = dicemap[num];
-    for(let i = 0; i<position.lenght ; i++){
-      const pos = position[i];
-      const r = pos[0];
-      const c = pos[1];
-
-      const dots = document.createElement('div');
-      dots.classList.add('dot');
-      dots.style.gridRow = r;
-      dots.style.gridCloumn = c;
-
-      dContainer.append(dots);
-
-    }*/
+    
 }
 
 function rollDice(){
@@ -61,7 +47,7 @@ function rollDice(){
         }
 
         message.textContent = "Roll Dice Again!";
-     }, 3800);
+     }, 1800);
     
 }
 
